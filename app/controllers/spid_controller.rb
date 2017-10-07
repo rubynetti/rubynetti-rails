@@ -16,6 +16,7 @@ class SpidController < ApplicationController
       settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
 
       settings.issuer= metadata_url
+      settings.authn_context = 'https://www.spid.gov.it/SpidL1'
 
 
       request = OneLogin::RubySaml::Authrequest.new
