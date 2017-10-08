@@ -10,10 +10,6 @@ class SpidController < ApplicationController
       sso_binding: ["urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"]
     })
 
-    # Dati a cui IDP farà riferimento per rispondere
-    settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
-    # settings.assertion_consumer_service_url = "http://localhost:3000/print_response"
-
     settings.issuer        = metadata_url
     settings.authn_context = 'https://www.spid.gov.it/SpidL1'
 
@@ -33,7 +29,7 @@ class SpidController < ApplicationController
     metadata = OneLogin::RubySaml::Metadata.new
     settings = OneLogin::RubySaml::Settings.new
     settings.assertion_consumer_service_url = "http://localhost:3000/print_response"
-    settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+    settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
     settings.issuer = metadata_url
     render xml: metadata.generate(settings)
   end
