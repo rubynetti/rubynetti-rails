@@ -1,5 +1,5 @@
 
-class SpidController < ApplicationController
+class Spid::SessionController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :print_response
 
   def new
