@@ -1,0 +1,7 @@
+- if flash[:notice].present?
+  = flash[:notice]
+.container
+  .row
+    .col-sm-12
+      %h1 Rails - Spid
+      = link_to 'Entra con SPID', new_spid_session_path,class: 'btn btn-primary'

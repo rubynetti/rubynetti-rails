@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resource :metadata, only: :show
     resources :session, only: [:new, :create]
   end
-  resource :welcome, only: :show
-  root to: 'welcome#show'
+  resources :welcomes#, only: :show
+  root to: 'welcomes#index'
 end
