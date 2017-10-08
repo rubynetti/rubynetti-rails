@@ -1,5 +1,6 @@
 
 class SpidController < ApplicationController
+  skip_before_action :verify_authenticity_token, raise: false, only: :print_response
 
     def index
       parser = OneLogin::RubySaml::IdpMetadataParser.new
@@ -10,7 +11,7 @@ class SpidController < ApplicationController
       })
 
       # Dati a cui IDP farà riferimento per rispondere
-      settings.assertion_consumer_service_url = "http://localhost:3000"
+      settings.assertion_consumer_service_url = "http://localhost:3000/print_response"
       settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
 
       settings.issuer        = metadata_url
@@ -22,12 +23,16 @@ class SpidController < ApplicationController
       redirect_to output
     end
 
+    def print_response
+      render html: params.inspect
+    end
+
 
     # Metadata locale
     def metadata
       metadata = OneLogin::RubySaml::Metadata.new
       settings = OneLogin::RubySaml::Settings.new
-      settings.assertion_consumer_service_url = "http://localhost:3000"
+      settings.assertion_consumer_service_url = "http://localhost:3000/print_response"
       settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
       settings.issuer = metadata_url
       render xml: metadata.generate(settings)
