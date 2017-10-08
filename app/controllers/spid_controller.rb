@@ -4,7 +4,8 @@ class SpidController < ApplicationController
     def index
       parser = OneLogin::RubySaml::IdpMetadataParser.new
 
-      settings = parser.parse_remote("http://spidposte.test.poste.it/jod-fs/metadata/idp.xml", true, {
+      # settings = parser.parse_remote("http://spidposte.test.poste.it/jod-fs/metadata/idp.xml", true, {
+      settings = parser.parse_remote("http://localhost:3000/metadata_idp", true, {
         sso_binding: ["urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"]
       })
 
@@ -25,9 +26,15 @@ class SpidController < ApplicationController
     # Metadata locale
     def metadata
       metadata = OneLogin::RubySaml::Metadata.new
+      settings = OneLogin::RubySaml::Settings.new
       settings.assertion_consumer_service_url = "http://localhost:3000"
       settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
-      render xml: metadata.generate(saml_settings)
+      settings.issuer = metadata_url
+      render xml: metadata.generate(settings)
+    end
+
+    def metadata_idp
+      render xml: File.open("app/views/spid/metadata_idp.xml")
     end
 
 end
