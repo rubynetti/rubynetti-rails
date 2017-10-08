@@ -11,7 +11,6 @@ class SpidController < ApplicationController
     })
 
     # Dati a cui IDP farà riferimento per rispondere
-    settings.assertion_consumer_service_url = "http://localhost:3000/print_response"
     settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
 
     settings.issuer        = metadata_url
