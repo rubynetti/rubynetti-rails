@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resource :metadata, only: :show
     resources :session, only: [:new, :create]
   end
-  root to: 'spid/session#new'
+  resource :welcome, only: :show
+  root to: 'welcome#show'
 end

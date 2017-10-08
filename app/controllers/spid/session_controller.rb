@@ -18,7 +18,10 @@ class Spid::SessionController < ApplicationController
   end
 
   def create
-    render html: params.inspect
+    response = OneLogin::RubySaml::Response.new(params[:SAMLResponse])
+    if response.is_valid?
+    else
+    end
   end
 
 end
