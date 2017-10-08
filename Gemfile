@@ -54,3 +54,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'ruby-saml', '~> 1.5.0'
+gem 'spid-rails', path: 'spid-rails'
