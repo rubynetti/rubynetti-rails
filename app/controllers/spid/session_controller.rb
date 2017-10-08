@@ -38,8 +38,6 @@ O4d1DeGHT/YnIjs9JogRKv4XHECwLtIVdAbIdWHEtVZJyMSktcyysFcvuhPQK8Qc/E/Wq8uHSCo=
     response.settings = settings
 
     if response.is_valid?
-      flash[:notice] = "prova"
-      #flash.keep
       redirect_to welcome_path, notice: 'Utente correttamente loggato'
     else
       render plain: response.inspect
