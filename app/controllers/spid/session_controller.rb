@@ -1,4 +1,3 @@
-
 class Spid::SessionController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
@@ -21,6 +20,5 @@ class Spid::SessionController < ApplicationController
   def create
     render html: params.inspect
   end
-
 
 end
