@@ -1,6 +1,6 @@
 
 class Spid::SessionController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :print_response
+  skip_before_action :verify_authenticity_token, only: :create
 
   def new
     parser = OneLogin::RubySaml::IdpMetadataParser.new
