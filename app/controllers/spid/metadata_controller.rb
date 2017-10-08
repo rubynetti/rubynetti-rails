@@ -11,11 +11,11 @@ class Spid::MetadataController < ApplicationController
     # Indirizzo del metadata del service provider: /spid/metadata.
     settings.issuer = spid_metadata_url
 
-    # Generate xml
+    # Prepare and generate xml
     metadata = OneLogin::RubySaml::Metadata.new
     xml = metadata.generate(settings)
 
-    render xml: metadata.generate(xml)
+    render xml: xml
   end
 
 end
