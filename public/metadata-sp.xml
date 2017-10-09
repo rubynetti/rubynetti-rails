@@ -1,5 +1,6 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" ID="_b68c03df-98af-4719-a0fe-98ae63bac15a" entityID="http://localhost:3000/spid/metadata">
-<md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:3000/spid/session" index="0" isDefault="true"/>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" ID="_f3a61bde-1e06-433e-93ea-68a8c64da70b" entityID="http://localhost:3001/spid/metadata">
+<md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://localhost:3001/spid/slo" ResponseLocation="http://localhost:3001/spid/slo"/>
+<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:3001/spid/sso" index="0" isDefault="true"/>
 </md:SPSSODescriptor>
 </md:EntityDescriptor>
