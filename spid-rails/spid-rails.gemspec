@@ -7,11 +7,11 @@ require "spid/rails/version"
 Gem::Specification.new do |s|
   s.name        = "spid-rails"
   s.version     = Spid::Rails::VERSION
-  s.authors     = ["Alessandro Descovi"]
-  s.email       = ["descovi@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Spid::Rails."
-  s.description = "TODO: Description of Spid::Rails."
+  s.authors     = ["Alessandro Descovi, Giacomo Bertoldi"]
+  s.email       = ["descovi@gmail.com, bertoldi.giacomo@gmail.com"]
+  s.homepage    = "https://github.com/rubynetti/rubynetti-rails"
+  s.summary     = "SPID, il Sistema Pubblico di Identità Digitale"
+  s.description = "Soluzione per poter effettuare il login tramite SPID"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
