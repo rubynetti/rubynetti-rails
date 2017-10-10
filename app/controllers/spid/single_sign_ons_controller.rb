@@ -11,7 +11,6 @@ class Spid::SingleSignOnsController < SpidController
     response = OneLogin::RubySaml::Response.new(params[:SAMLResponse],
                                                 skip_subject_confirmation: true)
     response.settings = saml_settings
-
     if response.is_valid?
       session[:index] = response.sessionindex
       redirect_to welcome_path, notice: 'Utente correttamente loggato'

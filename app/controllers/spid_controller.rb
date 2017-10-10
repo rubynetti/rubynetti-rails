@@ -10,7 +10,8 @@ class SpidController < ApplicationController
                                    sso_binding: [binding(:redirect)]
 
     settings.issuer        = spid_metadata_url
-    settings.authn_context = authn_context(params[:spid_level])
+    settings.authn_context = authn_context
+    settings.authn_context_comparison = 'minimum'
 
     settings.sessionindex = session[:index]
 
@@ -25,8 +26,8 @@ class SpidController < ApplicationController
     "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-#{formatted_type}"
   end
 
-  def authn_context spid_level = 1
-    "https://www.spid.gov.it/SpidL#{spid_level}"
+  def authn_context
+    "https://www.spid.gov.it/SpidL#{params[:spid_level] || 1}"
   end
 
   def idp_xml idp = :test

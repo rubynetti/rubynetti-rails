@@ -11,14 +11,12 @@ class Spid::SingleLogoutOperationsController < SpidController
     logout_response = OneLogin::RubySaml::Logoutresponse.new(params[:SAMLResponse],
                                                              saml_settings,
                                                              matches_request_id: session[:transaction_id])
-
     if logout_response.validate
       session[:index] = nil
       redirect_to welcome_path, notice: 'Utente correttamente sloggato'
     else
       render plain: responde.inspect
     end
-
   end
 
 end
