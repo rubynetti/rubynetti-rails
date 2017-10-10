@@ -4,4 +4,5 @@
   .row
     .col-sm-12
       %h1 Rails - Spid
-      = link_to 'Entra con SPID', spid_rails.new_session_path(),class: 'btn btn-primary'
+      = link_to 'Entra con SPID', spid_rails.new_spid_sso_path, class: 'btn btn-primary'
+      = link_to 'Esci', spid_rails.new_spid_slo_path, class: 'btn btn-primary'

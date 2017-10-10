@@ -4,14 +4,16 @@ require_dependency "spid/rails/application_controller"
 class Spid::Rails::MetadataController < ApplicationController
   def show
     settings = OneLogin::RubySaml::Settings.new
-    # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso.
-    settings.assertion_consumer_service_url     = "http://localhost:3000/spid/session"
-    # Tipologia di chiamata che l'identity provider dovrà utilizzare per rispondere al service provider.
-    settings.assertion_consumer_service_binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
     # Indirizzo del metadata del service provider: /spid/metadata.
     settings.issuer = metadata_url
+    # Indirizzo che l'identity provider chiama una volta che l'utente ha effettuato l'accesso (default-binding: POST).
+    settings.assertion_consumer_service_url = sso_url
+    # Indirizzo a cui l'dentity provider chiama una volta che l'utente ha effettuato il logout (default-binding: Redirect).
+    settings.single_logout_service_url = slo_url
+    # Richiedi firma all'IDP
+    # TODO: La firma non viene controllata
+    settings.security[:want_assertions_signed] = true
 
-    # Prepare and generate xml
     metadata = OneLogin::RubySaml::Metadata.new
     xml = metadata.generate(settings)
 
