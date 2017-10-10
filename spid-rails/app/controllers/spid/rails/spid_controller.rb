@@ -1,4 +1,4 @@
-class SpidController < ApplicationController
+class Spid::Rails::SpidController < ApplicationController
 
   private
 
@@ -9,7 +9,7 @@ class SpidController < ApplicationController
                                    true,
                                    sso_binding: [binding(:redirect)]
 
-    settings.issuer        = spid_metadata_url
+    settings.issuer        = metadata_url
     settings.authn_context = authn_context
     settings.authn_context_comparison = 'minimum'
 
@@ -33,11 +33,11 @@ class SpidController < ApplicationController
   def idp_xml idp = :test
     case idp
     when :gov
-      root_url + 'metadata-idp-gov.xml'
+      main_app.root_url + 'metadata-idp-gov.xml'
     when :poste
       'http://spidposte.test.poste.it/jod-fs/metadata/idp.xml'
     when :test
-      root_url + 'metadata-idp-test-local.xml'
+      main_app.root_url + 'metadata-idp-test-local.xml'
     end
   end
 

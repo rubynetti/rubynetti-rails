@@ -1,4 +1,4 @@
-class Spid::SingleLogoutOperationsController < SpidController
+class Spid::Rails::SingleLogoutOperationsController < Spid::Rails::SpidController
   skip_before_action :verify_authenticity_token, only: :create
 
   def new
