@@ -38,7 +38,7 @@ O4d1DeGHT/YnIjs9JogRKv4XHECwLtIVdAbIdWHEtVZJyMSktcyysFcvuhPQK8Qc/E/Wq8uHSCo=
     response.settings = settings
 
     if response.is_valid?
-      redirect_to main_app.welcome_path, notice: 'Utente correttamente loggato'
+      redirect_to main_app.root_path, notice: 'Utente correttamente loggato'
     else
       render plain: response.inspect
     end
