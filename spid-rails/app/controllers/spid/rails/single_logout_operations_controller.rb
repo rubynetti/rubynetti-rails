@@ -1,4 +1,4 @@
-class Spid::SingleLogoutOperationsController < SpidController
+class Spid::Rails::SingleLogoutOperationsController < Spid::Rails::SpidController
   skip_before_action :verify_authenticity_token, only: :create
 
   def new
@@ -13,7 +13,7 @@ class Spid::SingleLogoutOperationsController < SpidController
                                                              matches_request_id: session[:transaction_id])
     if logout_response.validate
       session[:index] = nil
-      redirect_to welcome_path, notice: 'Utente correttamente sloggato'
+      redirect_to main_app.welcome_path, notice: 'Utente correttamente sloggato'
     else
       render plain: responde.inspect
     end
