@@ -1,4 +1,4 @@
-class Spid::SessionController < ApplicationController
+class Spid::Rails::SessionController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def new
@@ -9,7 +9,7 @@ class Spid::SessionController < ApplicationController
       sso_binding: ["urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"]
     })
 
-    settings.issuer        = spid_metadata_url # /metadata.xml
+    settings.issuer        = metadata_url # /metadata.xml
     settings.authn_context = 'https://www.spid.gov.it/SpidL1'
 
     request = OneLogin::RubySaml::Authrequest.new
@@ -38,7 +38,7 @@ O4d1DeGHT/YnIjs9JogRKv4XHECwLtIVdAbIdWHEtVZJyMSktcyysFcvuhPQK8Qc/E/Wq8uHSCo=
     response.settings = settings
 
     if response.is_valid?
-      redirect_to welcome_path, notice: 'Utente correttamente loggato'
+      redirect_to main_app.welcome_path, notice: 'Utente correttamente loggato'
     else
       render plain: response.inspect
     end
