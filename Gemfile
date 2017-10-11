@@ -57,4 +57,4 @@ gem 'ruby-saml', '~> 1.5.0'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 
-gem 'spid-rails', path: 'spid-rails'
+gem 'spid-rails', git: 'git@github.com:rubynetti/spid-rails.git'

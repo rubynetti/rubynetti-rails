@@ -1,5 +1,6 @@
-PATH
-  remote: spid-rails
+GIT
+  remote: git@github.com:rubynetti/spid-rails.git
+  revision: a53c9150244d3b13beabb424e76bb15c9671be3f
   specs:
     spid-rails (0.1.0)
       rails (~> 5.1.4)
