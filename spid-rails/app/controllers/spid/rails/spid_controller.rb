@@ -26,6 +26,9 @@ class Spid::Rails::SpidController < ApplicationController
     "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-#{formatted_type}"
   end
 
+  # Impost il livello di autorizzazione
+  # livello 1 base
+  # livello 2 sms
   def authn_context
     "https://www.spid.gov.it/SpidL#{params[:spid_level] || 1}"
   end
