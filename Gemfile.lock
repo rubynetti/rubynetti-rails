@@ -1,9 +1,10 @@
 GIT
   remote: git@github.com:rubynetti/spid-rails.git
-  revision: a53c9150244d3b13beabb424e76bb15c9671be3f
+  revision: ce32917da101195d315ff7c2199a80bb1a5367f1
   specs:
     spid-rails (0.1.0)
       rails (~> 5.1.4)
+      ruby-saml (= 1.5.0)
 
 GEM
   remote: https://rubygems.org/
