@@ -1,11 +1,3 @@
-GIT
-  remote: git@github.com:rubynetti/spid-rails.git
-  revision: ce32917da101195d315ff7c2199a80bb1a5367f1
-  specs:
-    spid-rails (0.1.0)
-      rails (~> 5.1.4)
-      ruby-saml (= 1.5.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -172,6 +164,9 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     sexp_processor (4.10.0)
+    spid-rails (0.1)
+      rails (~> 5.1, >= 5.1.4)
+      ruby-saml (= 1.5.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -223,7 +218,7 @@ DEPENDENCIES
   ruby-saml (~> 1.5.0)
   sass-rails (~> 5.0)
   selenium-webdriver
-  spid-rails!
+  spid-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
@@ -233,4 +228,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.3
+   1.16.1
