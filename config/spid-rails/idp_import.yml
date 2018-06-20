@@ -1,0 +1,15 @@
+# Identity Providers are loaded on a per environment basis
+
+shared: &shared
+  local_test:
+    metadata_url: 'http://spid-testenv:8088/metadata'
+    validate_cert: false
+
+development:
+  <<: *shared
+  agid:
+    metadata_url: 'https://idp.spid.gov.it:8080/assets/idp-metadata.xml'
+    validate_cert: false
+
+test:
+  <<: *shared
