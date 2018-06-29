@@ -56,4 +56,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 
-gem "spid-rails", git: "git@github.com:italia/spid-rails"
+gem "spid-rails", "~> 0.1.3"
