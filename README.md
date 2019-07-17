@@ -7,7 +7,7 @@ Per testare il funzionamento viene utilizzato l'Identity Provider di test [SPID-
 ## ATTENZIONE
 
 Lo sviluppo del progetto è stato spostato su https://github.com/italia/spid-rails.
-Questo progetto non è stabile e mantenuto.
+Questo repository non è stabile e mantenuto.
 
 ## Requisiti
 
