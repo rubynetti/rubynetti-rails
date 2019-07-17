@@ -4,6 +4,11 @@ Il seguente progetto rails è una versione dimostrativa di come funziona il sist
 
 Per testare il funzionamento viene utilizzato l'Identity Provider di test [SPID-testenv2](https://github.com/italia/spid-testenv2)
 
+## ATTENZIONE
+
+Lo sviluppo del progetto è stato spostato su https://github.com/italia/spid-rails.
+Questo progetto non è stabile e mantenuto.
+
 ## Requisiti
 
 Installare le seguenti librerie di sistema:
@@ -81,3 +86,8 @@ Installare le seguenti librerie di sistema:
 compilando gli attributi che si vuole fornire al service provide nell'Authn Assertion
 
 12) Navigare all'indirizzo http://rubynetti.local:3000/ per visualizzare l'applicazione demo
+
+
+## Rubynetti
+
+Progetto sperimentale realizzato da [Rubynetti.it](https://www.rubynetti.it/)
